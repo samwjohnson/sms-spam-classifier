@@ -27,11 +27,14 @@ mlflow ui --backend-store-uri ./mlruns
 ```
 
 ## 3. LLM-as-judge evaluation (`sms_judge_300/`)
-300 messages from the same dataset (40 spam / 260 ham, stratified, seed 42, excluding the 30-message pilot), judged by Claude Opus 4.6 with a fixed judge prompt and an 80-token reply cap.
+300 messages from the same dataset (40 spam / 260 ham, stratified, seed 42, excluding the 30-message pilot), judged by Claude Opus 4.6 and Claude Haiku 5.5 with a fixed judge prompt and an 80-token reply cap.
 
 | Judge | Correct | Precision | Recall | Spam F1 | Notes |
 |---|---|---|---|---|---|
 | Claude Opus 4.6 (`claude-opus-4-6`, temperature 0) | 297/300 | 0.974 | 0.950 | 0.962 | 38 of 40 spam caught, 1 false alarm; 78,090 in / 9,438 out tokens, ~$0.63 at list price |
+| Claude Haiku 5.5 (`claude-haiku-5-5`, temperature omitted, effort low) | 299/300 | 1.000 | 0.975 | 0.987 | 39 of 40 spam caught, 0 false alarms; 103,781 in / 14,351 out tokens, ~$0.018 at list price ($0.10/$0.50 per MTok) |
+
+Haiku 5.5 settings: it rejects temperature 0, so temperature is omitted and effort is set to low; same 300 messages, system prompt, label regex and 80-token cap as Opus 4.6. No replies were truncated (all 300 `end_turn`, longest 72 tokens, no thinking tokens). Its one miss was row 5542. Files: `haiku300.py`, `haiku55_300.jsonl`, `results_haiku55_300.json`, `haiku55_run.log`, `haiku55_probe.jsonl` (5-message truncation probe).
 
 The API key is read from the `ANTHROPIC_API_KEY` environment variable and is never stored in this repo.
 

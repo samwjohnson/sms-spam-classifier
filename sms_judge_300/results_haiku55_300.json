@@ -1,0 +1,43 @@
+{
+ "model": [
+  "claude-haiku-5-5"
+ ],
+ "n": 300,
+ "correct": 299,
+ "acc": 0.9967,
+ "precision": 1.0,
+ "recall": 0.975,
+ "f1": 0.9873,
+ "tp": 39,
+ "fp": 0,
+ "fn": 1,
+ "tn": 260,
+ "unparsed": 0,
+ "truncated": 0,
+ "stop_reasons": {
+  "end_turn": 300
+ },
+ "thinking_block_msgs": 0,
+ "input_tokens": 103781,
+ "output_tokens": 14351,
+ "thinking_tokens": 0,
+ "max_output": 72,
+ "price_per_mtok": {
+  "input": 0.1,
+  "output": 0.5
+ },
+ "cost_usd": 0.01755,
+ "settings": {
+  "max_tokens": 80,
+  "effort": "low",
+  "temperature": "omitted"
+ },
+ "errors": [
+  {
+   "row": 5542,
+   "label": "spam",
+   "pred": "ham",
+   "raw": "LABEL: ham | REASON: The message is a personal rant about a phone bill and debt with no offer, prize, link, or call-to-action to a number."
+  }
+ ]
+}
