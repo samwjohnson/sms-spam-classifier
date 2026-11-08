@@ -1,0 +1,6 @@
+artifact_location: file:///workspace/sms_mlflow/mlruns/964031758169698400
+creation_time: 1794157088415
+experiment_id: '964031758169698400'
+last_update_time: 1794157088415
+lifecycle_stage: active
+name: sms-spam-distilbert

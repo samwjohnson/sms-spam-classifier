@@ -1,0 +1,57 @@
+Dataset rows: 5574
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2026/11/08 11:58:08 INFO mlflow.tracking.fluent: Experiment with name 'sms-spam-distilbert' does not exist. Creating a new experiment.
+step 0/63 loss 0.6627
+step 10/63 loss 0.2981
+step 20/63 loss 0.0627
+step 30/63 loss 0.0249
+step 40/63 loss 0.0045
+step 50/63 loss 0.0137
+step 60/63 loss 0.0053
+Device set to use cpu
+{
+  "run_id": "2b09015f87d94c65870560c98e8346a3",
+  "experiment_id": "964031758169698400",
+  "metrics": {
+    "test_accuracy": 0.98,
+    "spam_precision": 0.9722222222222222,
+    "spam_recall": 0.875,
+    "spam_f1": 0.9210526315789473,
+    "train_loss": 0.12352244205772876,
+    "train_time_seconds": 51.037279055999534
+  },
+  "params": {
+    "model_name": "distilbert-base-uncased",
+    "train_subset": 1000,
+    "test_subset": 300,
+    "dataset_rows": 5574,
+    "max_len": 64,
+    "epochs": 1,
+    "batch_size": 16,
+    "lr": 5e-05,
+    "seed": 42,
+    "split": "stratified 80/20; seed 42; stratified subsets seed 42",
+    "device": "cpu",
+    "torch_threads": 4,
+    "torch_version": "2.14.1+cpu",
+    "transformers_version": "4.57.6",
+    "mlflow_version": "2.22.5",
+    "scikit-learn_version": "1.9.1",
+    "pandas_version": "2.3.3",
+    "numpy_version": "2.5.4"
+  },
+  "tracking_uri": "file:///workspace/sms_mlflow/mlruns",
+  "mlruns": "/workspace/sms_mlflow/mlruns",
+  "artifact_uri": "file:///workspace/sms_mlflow/mlruns/964031758169698400/2b09015f87d94c65870560c98e8346a3/artifacts",
+  "model_flavor": "mlflow.transformers",
+  "model_artifact": "model",
+  "verified_status": "FINISHED",
+  "artifacts": [
+    "model",
+    "tokenizer",
+    "versions.json"
+  ]
+}
+Run ID: 2b09015f87d94c65870560c98e8346a3
+mlruns: /workspace/sms_mlflow/mlruns
